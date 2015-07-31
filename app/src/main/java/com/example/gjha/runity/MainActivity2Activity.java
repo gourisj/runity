@@ -2,7 +2,7 @@ package com.example.gjha.runity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,19 +12,20 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 
-public class MainActivity2Activity extends ActionBarActivity {
+
+public class MainActivity2Activity extends AppCompatActivity {
 
     private View viewContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
-        final ListView listview = (ListView) findViewById(R.id.listview);
+        final ListView listview = (ListView) findViewById(R.id.list_view);
         String[] values = new String[] { "Being Human", "CRY", "Helpage India",
                 "Blind School" };
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, values);
-        //viewContainer = findViewById(R.id.undobar);
+        viewContainer = findViewById(R.id.list_view);
         listview.setAdapter(adapter);
 
     }

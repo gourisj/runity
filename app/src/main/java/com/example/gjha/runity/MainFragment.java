@@ -52,7 +52,7 @@ private FacebookCallback mFacebookCallback;
                 accessToken = loginResult.getAccessToken();
 
              // String name = profile.getName();
-                Intent intent = new Intent(getActivity(), MainActivity2Activity.class);
+                Intent intent = new Intent(getActivity(), ItemNGOListActivity.class);
                 getActivity().startActivity(intent);
 
             }
@@ -124,8 +124,8 @@ private FacebookCallback mFacebookCallback;
     @Override
     public void onDestroy() {
         super.onDestroy();
-        accessTokenTracker.stopTracking();
-        profileTracker.stopTracking();
+        //accessTokenTracker.stopTracking();
+        //profileTracker.stopTracking();
     }
 
     @Override

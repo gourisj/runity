@@ -1,0 +1,49 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/ngoDetailScrollView"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
+
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="NGOname"
+        android:textColor="#ff707070"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/textNGOName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="NGO name"
+        android:inputType="textPersonName"
+        android:textColor="#ff222222"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Biography"
+        android:textColor="#ff707070"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/textBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type detail about NGO"
+        android:inputType="textMultiLine|textAutoCorrect"
+        android:textColor="#ff222222"
+        android:textSize="20sp" />
+</LinearLayout>
+
+</ScrollView>

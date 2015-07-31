@@ -1,9 +1,16 @@
 package com.example.gjha.runity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -12,8 +19,34 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final EditText uname = (EditText) findViewById(R.id.username_edittext);
+        final EditText passwd = (EditText) findViewById(R.id.password_edittext);
+
+        final Button loginButton = (Button) findViewById(R.id.login_main);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                if (checkPassword(uname.getText(), passwd.getText())) {
+
+                    // Create an explicit Intent for starting the HelloAndroid
+                    // Activity
+                    Intent helloAndroidIntent = new Intent(MainActivity.this,
+                            ItemNGOListActivity.class);
+
+                    // Use the Intent to start the HelloAndroid Activity
+                    startActivity(helloAndroidIntent);
+                } else {
+                    uname.setText("");
+                    passwd.setText("");
+                }
+            }
+        });
     }
 
+    private boolean checkPassword(Editable uname, Editable passwd) {
+        // Just pretending to extract text and check password
+        return new Random().nextBoolean();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,5 +68,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void proceedAnyway (View view) {
+        Intent intent = new Intent(MainActivity.this , MainActivity2Activity.class);
+        startActivity(intent);
     }
 }
