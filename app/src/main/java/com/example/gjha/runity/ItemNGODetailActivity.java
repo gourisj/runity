@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 
 
 /**
@@ -62,5 +63,10 @@ public class ItemNGODetailActivity extends AppCompatActivity{
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void mapinitiate (View view) {
+        Intent intent = new Intent(ItemNGODetailActivity.this , MapsActivity.class);
+        startActivity(intent);
     }
 }

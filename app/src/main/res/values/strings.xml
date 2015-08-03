@@ -13,8 +13,9 @@
     <string name="login_string">Login</string>
     <string name="email">Email Address</string>
     <string name="password">Password</string>
-    <string name="submit">Submit</string>
+    <string name="submit">Login/Register</string>
     <string name="title_itemngo_list">ItemsNGO</string>
     <string name="title_itemngo_detail">ItemNGO Detail</string>
+    <string name="title_activity_splashscreen">Runity</string>
 
 </resources>

@@ -1,23 +1,63 @@
 package com.example.gjha.runity;
 
-import android.support.v4.app.FragmentActivity;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity {
+public class MapsActivity extends FragmentActivity implements LocationListener{
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
+    protected LocationManager locationManager;
+    protected LocationListener locationListener;
+    protected Context context;
+   // TextView txtLat;
+    String lat;
+    String provider;
+    LatLng startlocation;
+    LatLng endlocation;
+    protected String latitude,longitude;
+    protected boolean gps_enabled,network_enabled;
+    ImageButton runbutton;
+    Integer imageres=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        runbutton = (ImageButton)findViewById(R.id.run_button);
+        runbutton.setOnClickListener(runButttonHandler);
         setUpMapIfNeeded();
+        imageres = 1;
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     }
+
+    View.OnClickListener runButttonHandler = new View.OnClickListener() {
+
+        public void onClick(View v) {
+            switch (imageres) {
+                case 1:
+                    runbutton.setImageResource(R.drawable.pause);
+                    imageres = 0;
+                    break;
+                case 0:
+                    runbutton.setImageResource(R.drawable.play);
+                    imageres = 1;
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onResume() {
@@ -60,6 +100,30 @@ public class MapsActivity extends FragmentActivity {
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
     private void setUpMap() {
-        mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
+        LatLng runlocation = new LatLng(12.9182596,77.6695326 );
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(runlocation, 19));
+        mMap.addMarker(new MarkerOptions().position(runlocation).title("Marker"));
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        LatLng runlocation = new LatLng(location.getLatitude(),location.getLongitude() );
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(runlocation, 19));
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        Log.d("Latitude", "status");
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        Log.d("Latitude","enable");
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        Log.d("Latitude","disable");
     }
 }

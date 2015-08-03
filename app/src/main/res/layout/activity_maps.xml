@@ -1,5 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.example.gjha.runity.MapsActivity"
+     >
+
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:id="@+id/map"
     tools:context="com.example.gjha.runity.MapsActivity"
     android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/run_button"
+    android:layout_height="50dp"
+    android:layout_width="50dp"
+    android:src="@drawable/play"
+    android:cropToPadding="true"
+    android:scaleType="centerCrop"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/roundcorner"
+    android:layout_margin="30dp"
+    android:layout_centerHorizontal="true"/>
+
+    </RelativeLayout>
