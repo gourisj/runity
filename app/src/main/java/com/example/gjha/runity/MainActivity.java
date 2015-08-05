@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                     // Create an explicit Intent for starting the HelloAndroid
                     // Activity
                     Intent helloAndroidIntent = new Intent(MainActivity.this,
-                            ItemNGOListActivity.class);
+                            CompanyListActivity.class);
 
                     // Use the Intent to start the HelloAndroid Activity
                     startActivity(helloAndroidIntent);

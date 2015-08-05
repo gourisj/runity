@@ -79,6 +79,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".listSelection"
+            android:label="@string/title_activity_list_selection" >
+        </activity>
+        <activity
+            android:name=".CompanyListActivity"
+            android:label="@string/title_itemngo_list"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name=".CompanyDetailActivity"
+            android:label="@string/title_company_detail"
+            android:parentActivityName=".CompanyListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.gjha.runity.CompanyListActivity" />
+        </activity>
+
+        <provider
+            android:name=".database.CompanyContentProvider"
+            android:authorities="com.example.gjha.runity.provider.company"
+            android:enabled="true"
+            android:exported="true" >
+        </provider>
     </application>
 
 </manifest>

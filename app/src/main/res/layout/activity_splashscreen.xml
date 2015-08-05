@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="vertical" >
-
-    <TextView
-        android:text="RUNITY..."
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ABCDEF"
-        android:scaleType="fitCenter"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        ></TextView>
+    android:orientation="vertical"
+    tools:context="com.example.gjha.runity.splashscreen">
 
     <ImageView
         android:src="@drawable/runity_background"
@@ -22,8 +13,22 @@
         android:layout_width="fill_parent"
         android:scaleType="centerCrop"
         android:layout_gravity="center"
-        android:padding="20dp"
         ></ImageView>
 
+    <TextView
+        android:text="RUNITY..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textAllCaps="true"
+        android:textSize="30dp"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
+        ></TextView>
 
-</LinearLayout>
+
+
+</RelativeLayout>

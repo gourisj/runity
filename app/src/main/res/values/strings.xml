@@ -14,8 +14,12 @@
     <string name="email">Email Address</string>
     <string name="password">Password</string>
     <string name="submit">Login/Register</string>
-    <string name="title_itemngo_list">ItemsNGO</string>
-    <string name="title_itemngo_detail">ItemNGO Detail</string>
+    <string name="title_itemngo_list">NGO List</string>
+    <string name="title_itemngo_detail">NGO Detail</string>
     <string name="title_activity_splashscreen">Runity</string>
-
+    <string name="title_activity_list_selection">SelectList</string>
+    <string name="company">Selection by Company</string>
+    <string name="ngos">Selection by NGO</string>
+    <string name="title_company_list">Company List</string>
+    <string name="title_company_detail">Company Detail</string>
 </resources>

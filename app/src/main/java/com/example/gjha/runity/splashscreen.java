@@ -1,65 +1,57 @@
 package com.example.gjha.runity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 
 
-public class splashscreen extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT = 3000;
+public class splashscreen extends Activity {
+    private static final long SPLASH_DURATION = 2500L;
+
+    private Handler mHandler;
+    private Runnable mRunnable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        new Handler().postDelayed(new Runnable() {
-
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
+        mHandler = new Handler();
+        mRunnable = new Runnable() {
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
-                Intent i = new Intent(splashscreen.this, MainActivity.class);
-                startActivity(i);
-
-                // close this activity
-                finish();
+                dismissSplash();
             }
-        }, SPLASH_TIME_OUT);
-    }
+        };
 
-
-
-    public void onDestroy(){
-        super.onDestroy();
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splashscreen, menu);
-        return true;
+        // allow user to click and dismiss the splash screen prematurely
+        View rootView = findViewById(android.R.id.content);
+        rootView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismissSplash();
+            }
+        });
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    protected void onResume() {
+        super.onResume();
+        mHandler.postDelayed(mRunnable, SPLASH_DURATION);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHandler.removeCallbacks(mRunnable);
+    }
+
+    private void dismissSplash() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
+
 }
