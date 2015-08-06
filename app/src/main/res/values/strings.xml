@@ -22,4 +22,9 @@
     <string name="ngos">Selection by NGO</string>
     <string name="title_company_list">Company List</string>
     <string name="title_company_detail">Company Detail</string>
+    <string name="title_activity_tabbedmaps">TabbedmapsActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
 </resources>

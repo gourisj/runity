@@ -4,17 +4,66 @@
     tools:context="com.example.gjha.runity.MapsActivity"
      >
 
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/map"
-    tools:context="com.example.gjha.runity.MapsActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/map"
+            tools:context="com.example.gjha.runity.MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textdistance"
+            android:layout_weight="1"
+            android:text="Distance Run"
+            android:padding="8dp"
+            android:textSize="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textdistancerun"
+            android:layout_weight="1"
+            android:textSize="16dp"
+            android:text="0.0 Km"
+            android:padding="8dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/texttime"
+            android:layout_weight="1"
+            android:text="Time"
+            android:padding="8dp"
+            android:textSize="24dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/texttimerun"
+            android:layout_weight="1"
+            android:textSize="16dp"
+            android:text="0 s"
+            android:padding="8dp"/>
+
+    </LinearLayout>
 
 <ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/run_button"
     android:layout_height="50dp"
     android:layout_width="50dp"
-    android:src="@drawable/play"
+    android:src="@drawable/playn"
     android:cropToPadding="true"
     android:scaleType="centerCrop"
     android:layout_alignParentBottom="true"
@@ -22,4 +71,4 @@
     android:layout_margin="30dp"
     android:layout_centerHorizontal="true"/>
 
-    </RelativeLayout>
+</RelativeLayout>

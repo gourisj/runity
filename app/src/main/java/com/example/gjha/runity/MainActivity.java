@@ -1,7 +1,9 @@
 package com.example.gjha.runity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.Menu;
@@ -9,12 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    Integer selection = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +34,36 @@ public class MainActivity extends AppCompatActivity {
 
                     // Create an explicit Intent for starting the HelloAndroid
                     // Activity
-                    Intent helloAndroidIntent = new Intent(MainActivity.this,
-                            CompanyListActivity.class);
+                    final CharSequence[] Models = {"Selection by Company", "Selection By NGO"};
+                    AlertDialog.Builder alt_bld = new AlertDialog.Builder(MainActivity.this);
+                    alt_bld.setIcon(R.drawable.running);
+                    alt_bld.setTitle("Please select");
+                    alt_bld.setSingleChoiceItems(Models, -1, new DialogInterface
+                            .OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            Toast.makeText(getApplicationContext(),
+                                    "Your selection is  " + Models[item], Toast.LENGTH_SHORT).show();
+                            selection = item;
+                            if ( selection == 0 )  {
+
+                                Intent helloAndroidIntent = new Intent(MainActivity.this,
+                                        CompanyListActivity.class);
+                                startActivity(helloAndroidIntent);
+                            }
+                            else {
+                                Intent helloAndroidIntent = new Intent(MainActivity.this,
+                                        ItemNGOListActivity.class);
+                                startActivity(helloAndroidIntent);
+                            }
+
+                        }
+                    });
+                    AlertDialog alert = alt_bld.create();
+                    alert.show();
+
 
                     // Use the Intent to start the HelloAndroid Activity
-                    startActivity(helloAndroidIntent);
+
                 } else {
                     uname.setText("");
                     passwd.setText("");

@@ -85,7 +85,7 @@
         </activity>
         <activity
             android:name=".CompanyListActivity"
-            android:label="@string/title_itemngo_list"
+            android:label="@string/title_company_list"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         <activity
@@ -103,6 +103,17 @@
             android:enabled="true"
             android:exported="true" >
         </provider>
+
+        <service
+            android:name=".GPSTracker"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".TabbedmapsActivity"
+            android:label="@string/title_activity_tabbedmaps" >
+        </activity>
     </application>
 
 </manifest>

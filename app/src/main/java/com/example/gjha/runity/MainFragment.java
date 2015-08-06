@@ -52,7 +52,7 @@ private FacebookCallback mFacebookCallback;
                 accessToken = loginResult.getAccessToken();
 
              // String name = profile.getName();
-                Intent intent = new Intent(getActivity(), CompanyListActivity.class);
+                Intent intent = new Intent(getActivity(), ItemNGOListActivity.class);
                 getActivity().startActivity(intent);
 
             }
