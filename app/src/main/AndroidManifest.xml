@@ -86,7 +86,8 @@
         <activity
             android:name=".CompanyListActivity"
             android:label="@string/title_company_list"
-            android:theme="@android:style/Theme.Holo.Light" >
+            android:theme="@android:style/Theme.Holo.Light"
+            >
         </activity>
         <activity
             android:name=".CompanyDetailActivity"

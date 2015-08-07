@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
                     // Activity
                     final CharSequence[] Models = {"Selection by Company", "Selection By NGO"};
                     AlertDialog.Builder alt_bld = new AlertDialog.Builder(MainActivity.this);
-                    alt_bld.setIcon(R.drawable.running);
                     alt_bld.setTitle("Please select");
                     alt_bld.setSingleChoiceItems(Models, -1, new DialogInterface
                             .OnClickListener() {
